@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <title>Messages</title>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    
+   
+  </head>
+  
+   
+  <app-nav></app-nav>
+  <body>
+
+    <main>
+
+
+      <form style="margin-top: 20px;background-color: rgb(249, 248, 248); border-radius: 15px;" (ngSubmit)="onSubmit()" [formGroup]="smsForm">
+
+        <h1>MESSAGE</h1>
+  
+        <div class="icon">
+          <img src="envoi.gif" alt="gif">   
+        </div>
+        <div class="formcontainer">
+  
+        <div class="container">
+  
+          <label for="uname"><strong>Expéditeur</strong></label>
+          <input type="text" placeholder="+221XXXXXXXXX" name="expediteur" formControlName="expediteur" required>
+  
+          <label for="receiver"><strong>Destinataire</strong></label>
+          <input type="text" placeholder="ex:  +221XXXXXXXXX" name="destinataire" formControlName="destinataire" required>
+  
+          <label for="msg"><strong>Contenu</strong></label>
+  
+          <textarea   name="contenu" placeholder="Entrez votre message" formControlName="contenu" required></textarea>
+        </div>
+  
+        <button type="submit"><strong>Envoyer</strong></button>
+  
+  
+      </div>
+  
+      </form>
+
+    </main>
+   
+
+  </body>
+</html>

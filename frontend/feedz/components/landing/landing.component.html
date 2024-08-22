@@ -1,0 +1,81 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Feedz</title>
+
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <app-nav></app-nav>
+
+    <main>
+        <section class="hero-section" id="section_1">
+
+            <div class="section-overlay"></div>
+
+            <div class="container d-flex justify-content-center align-items-center">
+                
+                <div class="row">
+
+                    <div class="col-12  mb-5 text-center">
+                        <small>Bienvenue sur</small>
+
+                        <h1 class="text-white mb-5">Feedz</h1>
+
+                        <a  *ngIf="!isLoggedIn" class="btn custom-btn smoothscroll" href="/login">Se connecter</a>
+                        <button *ngIf="isLoggedIn" class="btn custom-btn smoothscroll" (click)="logout()">Déconnexion</button>
+
+                    </div>    
+            </div>
+    
+          </div>
+        </section>
+
+
+    </main>
+
+
+    <footer class="site-footer">
+       
+        <div class="site-footer-bottom">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-3 col-12 mt-5">
+                        <p class="copyright-text">Copyright © 2024 Feedz</p>
+                    </div>
+
+                    <div class="col-lg-8 col-12 mt-lg-5">
+                        <ul class="site-footer-links">
+                            <li class="site-footer-link-item">
+                                <a href="#" class="site-footer-link">Terms &amp; Conditions</a>
+                            </li>
+
+                            <li class="site-footer-link-item">
+                                <a href="#" class="site-footer-link">Privacy Policy</a>
+                            </li>
+    
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>  
+
+</body>
+</html>

@@ -1,1 +1,43 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
+/*---------------------------------------
+  CUSTOM PROPERTIES ( VARIABLES )             
+-----------------------------------------*/
+:root {
+    --white-color:                  #ffffff;
+    --primary-color:                #F8CB2E;
+    --secondary-color:              #EE5007;
+    --section-bg-color:             #f0f8ff;
+    --custom-btn-bg-color:          #EE5007;
+    --custom-btn-bg-hover-color:    #c01f27;
+    --dark-color:                   #000000;
+    --p-color:                      #717275;
+    --border-color:                 #7fffd4;
+    --link-hover-color:             #B22727;
+  
+    --body-font-family:             'Outfit', sans-serif;
+  
+    --h1-font-size:                 74px;
+    --h2-font-size:                 46px;
+    --h3-font-size:                 32px;
+    --h4-font-size:                 28px;
+    --h5-font-size:                 24px;
+    --h6-font-size:                 22px;
+    --p-font-size:                  18px;
+    --btn-font-size:                14px;
+    --copyright-font-size:          16px;
+  
+    --border-radius-large:          100px;
+    --border-radius-medium:         20px;
+    --border-radius-small:          10px;
+  
+    --font-weight-light:            300;
+    --font-weight-normal:           400;
+    --font-weight-bold:             700;
+  }
+  
+  body {
+    background-color: var(--white-color);
+    font-family: var(--body-font-family); 
+  }
+
+  

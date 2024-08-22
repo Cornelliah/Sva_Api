@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing</title>
+</head>
+<body>
+    <app-nav></app-nav>
+
+    <div class="container">
+      
+        <div class="left-section">
+            <a class="btn btn-secondary btn-sm" href="/campagnes">Voir mes campagnes</a>
+          <img src="juicy-blue-paper-plane.gif" alt="Broadcast GIF">
+        </div>
+
+        <div class="right-section">
+            
+            <h1>Créer une campagne de communication</h1>
+
+            <form (ngSubmit)="onSubmit()" [formGroup]="campaignForm">
+
+                <div class="icon">
+                    <img src="talk.gif" alt="Talk GIF">
+                </div>
+
+
+                <div class="form-group">
+                    
+                    <label for="campaignName">
+                        <strong>Nom de la campagne</strong>
+                    </label>
+                    <input type="text" class="form-control" id="name" formControlName="name">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="num">
+                        <strong>Votre numéro</strong>
+                    </label>
+                    <input type="text" class="form-control" id="num" formControlName="num" placeholder="ex:743243567">
+                </div>
+
+
+
+                <div class="form-group">
+                    <label for="contacts" class="mt-2"><strong>Contacts (un par ligne)</strong></label>
+                    <textarea class="form-control" id="contacts" formControlName="contacts" placeholder="Numéros de téléphone, un par ligne"></textarea>
+                </div>
+
+                <div class="form-group mt-3">
+                    <label for="message">
+                        <strong>Message</strong>
+                    </label>
+                    <textarea class="form-control" id="message" formControlName="message" placeholder="Votre message"></textarea>
+                </div>
+
+                <div class="btn-container">
+                    <button type="submit" class="btn login-btn d-lg-block mb-3">Créer la campagne</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</body>
+</html>

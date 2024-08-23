@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { MessageService } from '../../services/message.service'; 
+import { MessageService } from '../../services/message.service';
 import { NavComponent } from '../nav/nav.component';
 import { CampaignService } from '../../services/campaign.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-marketing',
@@ -15,11 +16,13 @@ import { CampaignService } from '../../services/campaign.service';
 export class MarketingComponent implements OnInit {
 
   campaignForm: FormGroup;
+  userId: number | null = null;
 
   constructor(
     private fb: FormBuilder,
     private messageService: MessageService,
     private campaignService: CampaignService,
+    private authService: AuthService,
     private router: Router
   ) { 
     this.campaignForm = this.fb.group({
@@ -27,18 +30,20 @@ export class MarketingComponent implements OnInit {
       contacts: ['', Validators.required],
       message: ['', Validators.required],
       num: ['', Validators.required],
-
     });
   }
 
   ngOnInit(): void {
-   
+    // Récupérer l'ID de l'utilisateur connecté
+    this.authService.getUserId().subscribe(userId => {
+      this.userId = userId;
+    });
   }
  
   onSubmit(): void {
     console.log('onSubmit called');
   
-    if (this.campaignForm.valid) {
+    if (this.campaignForm.valid && this.userId !== null) {
       console.log('Form is valid');
   
       const formValue = this.campaignForm.value;
@@ -49,16 +54,16 @@ export class MarketingComponent implements OnInit {
       // Préparer l'objet campagne pour l'ajout à la base de données
       const campaign = {
         nom: formValue.name,
-        contacts: contactsArray
+        contacts: contactsArray,
+        user_id: this.userId  
       };
 
-       
-  
       // Envoyer chaque message à chaque contact
       contactsArray.forEach((contact: string) => {
         if (contact) {
           this.messageService.sendMessage(formValue.num, contact, formValue.message).subscribe(
             response => {
+              
               console.log('Message envoyé avec succès à', contact, response);
             },
             error => {
@@ -67,12 +72,12 @@ export class MarketingComponent implements OnInit {
           );
         }
       });
-       // Ajouter la campagne dans la base de données
+      
+      // Ajouter la campagne dans la base de données
       this.campaignService.addCampaign(campaign).subscribe(
         (response) => {
           console.log('Campagne ajoutée avec succès', response);
     
-  
           // Réinitialiser le formulaire après l'envoi
           this.campaignForm.reset({
             name: '',
@@ -89,9 +94,7 @@ export class MarketingComponent implements OnInit {
       );
   
     } else {
-      console.log('Form is invalid');
+      console.log('Form is invalid or userId is null');
     }
   }
-  
-  
 }

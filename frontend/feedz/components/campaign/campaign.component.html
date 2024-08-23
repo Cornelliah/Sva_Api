@@ -8,12 +8,26 @@
 <body>
     <app-nav></app-nav>
     
-  <!-- Liste des campagnes -->
-  
-    <h2>Mes campagnes</h2>
-
-    
-  
-
+    <div class="container">
+        <h2>Mes campagnes</h2>
+        
+        <div>
+             <table class="campaign-table">
+            <thead>
+                <tr>
+                    <th>Nom de la Campagne</th>
+                    <th>Contacts</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let campaign of campaigns">  
+                    <td>{{ campaign.nom }}</td>
+                    <td>{{ campaign.contacts }}</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+       
+    </div>
 </body>
 </html>

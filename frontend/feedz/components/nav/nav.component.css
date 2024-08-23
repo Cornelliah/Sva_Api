@@ -150,4 +150,9 @@
     top: 8px;
   }
   
+ 
+.collapse.show {
+  display: block !important; 
+}
+
   

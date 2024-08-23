@@ -13,9 +13,14 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 })
 export class NavComponent {
   isLoggedIn: boolean = false;
+  isNavbarCollapsed = true; 
+  
 
   constructor(private authService: AuthService, private router: Router) {
     this.isLoggedIn = this.authService.isAuthenticated();
+  }
+  toggleNavbar() {
+    this.isNavbarCollapsed = !this.isNavbarCollapsed; // Change l'état du menu
   }
 
   logout() {

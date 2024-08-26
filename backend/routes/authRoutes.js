@@ -37,7 +37,7 @@ router.get('/me', authenticateToken, async (req, res) => {
             return res.status(404).json({ message: 'User not found' });
         }
 
-        // Supprimer le champ password manuellement
+        
         delete user.password;
 
         res.json({ userId: user.id });

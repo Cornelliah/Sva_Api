@@ -61,6 +61,11 @@
   opacity: 0.8;
   }
 
+
+  input[text], textarea{
+    padding: 5px 2px;
+    margin: 2px 0;
+  }
   form{
     max-width: 500px;
   }
@@ -90,14 +95,16 @@
       flex-direction: column;
   }
 
-  .left-section, .right-section {
-      flex: none;
-      width: 100%;
-      padding: 10px;
+
+  input[text], textarea{
+    padding: 5px 2px;
+    margin: 2px 0;
   }
-.left-section img{
-  width: 100px ;
-}
+  form{
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 0px;
+  }
   h1 {
       font-size: 22px;
   }
@@ -111,7 +118,11 @@
   .h1 {
       font-size: 18px;
   }
-
+  form{
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 0px;
+  }
   .icon img {
       width: 120px;
   }

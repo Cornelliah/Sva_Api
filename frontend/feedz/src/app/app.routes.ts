@@ -7,11 +7,15 @@ import { NotfoundComponent } from '../../components/notfound/notfound.component'
 import { RegisterComponent } from '../../components/register/register.component';
 import { MarketingComponent } from '../../components/marketing/marketing.component';
 import { CampaignComponent } from '../../components/campaign/campaign.component';
+import { HostoComponent } from '../../components/hosto/hosto.component';
+import { VoteComponent } from '../../components/vote/vote.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'campagnes', component: CampaignComponent },
+  { path: 'hosto', component: HostoComponent },
+  { path: 'vote', component: VoteComponent },
   { path: '', component: LandingComponent },
   { path: 'messages', component: MessageComponent },
   { path: 'market', component: MarketingComponent },

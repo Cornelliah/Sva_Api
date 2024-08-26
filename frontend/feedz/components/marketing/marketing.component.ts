@@ -61,10 +61,11 @@ export class MarketingComponent implements OnInit {
       // Envoyer chaque message à chaque contact
       contactsArray.forEach((contact: string) => {
         if (contact) {
-          this.messageService.sendMessage(formValue.num, contact, formValue.message).subscribe(
+          this.messageService.sendMessage( contact, formValue.message).subscribe(
             response => {
               
               console.log('Message envoyé avec succès à', contact, response);
+              this.router.navigate(['/confirmation']); 
             },
             error => {
               console.error('Erreur lors de l\'envoi du message à', contact, error);

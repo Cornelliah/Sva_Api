@@ -1,4 +1,6 @@
 /* Root variables */
+    
+
 :root {
     --white-color:                  #ffffff;
     --primary-color:                #F8CB2E;
@@ -26,8 +28,13 @@
     --font-weight-light:            300;
     --font-weight-normal:           400;
     --font-weight-bold:             700;
-}
 
+}
+.btn-ajout{
+    background-color:  #87c7f2;
+    border-radius: 20px;
+    color: white;
+}
 body {
     background-color: var(--white-color);
     font-family: var(--body-font-family);

@@ -30,8 +30,9 @@ export class MessageComponent {
   onSubmit() {
     if (this.smsForm.valid) {
       const { expediteur, destinataire, contenu } = this.smsForm.value;
+      let message = `Vous avez reçu un message du "${expediteur}"\n ${contenu}`;
 
-      this.smsService.sendMessage(expediteur, destinataire, contenu).subscribe({
+      this.smsService.sendMessage( destinataire, message).subscribe({
         next: (response) => {
           // Handle successful response
           console.log('Message envoyé avec succès', response);

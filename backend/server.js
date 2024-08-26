@@ -2,6 +2,7 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
+const cron =require('./scheduler');
 require('dotenv').config();
 
 
@@ -22,6 +23,7 @@ const userRoutes = require('./routes/userRoutes');
 const messageRoutes = require('./routes/messageRoutes'); 
 const headerRoutes = require('./routes/headerRoutes'); 
 const campaignRoutes = require('./routes/campaignRoutes'); 
+const hostoRoutes = require('./routes/hostoRoutes'); 
 
 
 
@@ -31,6 +33,7 @@ app.use('/user', userRoutes);
 app.use('/messages', messageRoutes);
 app.use('/header', headerRoutes);
 app.use('/marketing', campaignRoutes);
+app.use('/hosto', hostoRoutes);
 
 
 // Route de base

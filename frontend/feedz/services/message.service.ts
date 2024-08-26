@@ -13,7 +13,7 @@ export class MessageService {
 
   constructor(private http: HttpClient) { }
 
-  sendMessage(expediteur: string, destinataire: string, contenu: string): Observable<any> {
+  sendMessage( destinataire: string, contenu: string): Observable<any> {
 
     return this.http.get<{ authorization_header: string }>(this.authHeaderUrl).pipe(
       switchMap(authHeader => {
@@ -21,7 +21,7 @@ export class MessageService {
           authorization_header: authHeader.authorization_header, 
           area_code: '+221', 
           receiver_number: destinataire,
-          sender_phone: expediteur,
+          sender_phone: '781276045',
           sms_body: contenu
         };
          

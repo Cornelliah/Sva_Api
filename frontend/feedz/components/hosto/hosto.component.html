@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hopital</title>
+</head>
+<body>
+    <app-nav></app-nav>
+
+    <div class="container">
+        <h2>Gestion des Rendez-vous</h2>
+        
+        <!-- Ajouter un nouveau rendez-vous -->
+        <button class="btn btn-sondage" (click)="showAddForm = true">Ajouter un Rendez-vous</button>
+        
+        <!-- Formulaire pour ajouter un rendez-vous -->
+        <div *ngIf="showAddForm" class="form-container">
+          <h3>Ajouter un Rendez-vous</h3>
+          <form (ngSubmit)="addAppointment()">
+            <div class="mb-3">
+              <label for="patientName" class="form-label">Nom du Patient</label>
+              <input type="text" id="patientName" [(ngModel)]="newAppointment.patientName" name="patientName" required class="form-control">
+            </div>
+            <div class="mb-3">
+              <label for="patientName" class="form-label">Numéro du Patient</label>
+              <input type="text" id="patientPhone" [(ngModel)]="newAppointment.patientPhone" name="patientPhone" required class="form-control">
+            </div>
+            <div class="mb-3">
+              <label for="appointmentDate" class="form-label">Date du Rendez-vous</label>
+              <input type="datetime-local" id="appointmentDate" [(ngModel)]="newAppointment.date" name="date" required class="form-control">
+            </div>
+            <button type="submit" class="btn ">Ajouter</button>
+            <button type="button" class="btn " (click)="showAddForm = false">Annuler</button>
+          </form>
+        </div>
+        
+        <!-- Liste des rendez-vous -->
+        <h3>Rendez-vous Existants</h3>
+
+        <ul class="list-group">
+          <li *ngFor="let appointment of appointments" class="list-group-item">
+
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <strong>{{ appointment.patientName }}</strong><br>
+                {{ appointment.date | date:'short' }}
+              </div>
+              <div>
+                <button class="btn  btn-secondary btn-sm mx-2" (click)="editAppointment(appointment)">Modifier</button>
+                <button class="btn btn-secondary btn-sm mx-2" (click)="cancelAppointment(appointment.id)">Annuler</button>
+              </div>
+            </div>
+
+          </li>
+        </ul>
+      
+        <!-- Formulaire pour modifier un rendez-vous -->
+        <div *ngIf="showEditForm" class="form-container mt-3">
+          <h3>Modifier un Rendez-vous</h3>
+          <form (ngSubmit)="updateAppointment()" class="mt-2">
+            <div class="mb-3">
+              <label for="editPatientName" class="form-label">Nom du Patient</label>
+              <input type="text" id="editPatientName" [(ngModel)]="selectedAppointment.patientName" name="patientName" required class="form-control">
+            </div>
+            <div class="mb-3">
+              <label for="editAppointmentDate" class="form-label">Date du Rendez-vous</label>
+              <input type="datetime-local" id="editAppointmentDate" [(ngModel)]="selectedAppointment.date" name="date" required class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">Mettre à jour</button>
+            <button type="button" class="btn btn-secondary" (click)="showEditForm = false">Annuler</button>
+          </form>
+        </div>
+      </div>
+      
+</body>
+</html>

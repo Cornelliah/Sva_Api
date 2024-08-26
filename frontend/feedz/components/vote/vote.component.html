@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting</title>
+</head>
+<body>
+    <app-nav></app-nav>
+    <h2>Créez un nouveau sondage </h2>
+    <div class="container mt-4">
+        <div class="form-container">
+           
+            <button class="btn btn-sondage mt-3" (click)="showPollForm = !showPollForm">Nouveau sondage</button>
+
+            <div *ngIf="showPollForm" class="mt-4">
+                <form (ngSubmit)="createPoll()">
+                    <div class="mb-3">
+                        <label for="pollName" class="form-label"><strong>Nom du sondage</strong></label>
+                        <input type="text" class="form-control" id="pollName" [(ngModel)]="pollName" name="pollName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="pollOptions" class="form-label"><strong>Options (une par ligne)</strong></label>
+                        <textarea class="form-control" id="pollOptions" [(ngModel)]="pollOptions" name="pollOptions" rows="4" 
+                        placeholder="ex:
+      blanc
+      bleu
+      rouge" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="sender" class="form-label"><strong>Numéro du vote</strong></label>
+                        <input type="text" class="form-control" id="sender" [(ngModel)]="sender" name="sender" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="recipients" class="form-label"><strong>Destinataires (un par ligne)</strong></label>
+                        <textarea class="form-control" id="recipients" [(ngModel)]="recipients" name="recipients" rows="4"
+                        placeholder="ex:
+      77XXXXXXX
+      78XXXXXXX" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-success">Envoyer le sondage</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <img src="juicy-red-paper-airplane.gif" alt="">
+            <img src="broadcast.gif" alt="Voting Image">
+            <img src="juicy-yellow-paper-airplane.gif" alt="">
+        </div>
+    </div>
+</body>
+</html>

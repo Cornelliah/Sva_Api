@@ -65,7 +65,6 @@ export class MarketingComponent implements OnInit {
             response => {
               
               console.log('Message envoyé avec succès à', contact, response);
-              this.router.navigate(['/confirmation']); 
             },
             error => {
               console.error('Erreur lors de l\'envoi du message à', contact, error);

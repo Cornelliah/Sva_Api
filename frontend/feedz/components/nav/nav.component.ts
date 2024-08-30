@@ -13,20 +13,29 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 })
 export class NavComponent {
   isLoggedIn: boolean = false;
+  isAdmin: boolean = false;
   isNavbarCollapsed = true; 
+  
   
 
   constructor(private authService: AuthService, private router: Router) {
     this.isLoggedIn = this.authService.isAuthenticated();
+    
+    this.authService.isAdmin().subscribe(isAdmin => {
+     return this.isAdmin = isAdmin;
+    });
   }
+  
   toggleNavbar() {
-    this.isNavbarCollapsed = !this.isNavbarCollapsed; // Change l'état du menu
+    this.isNavbarCollapsed = !this.isNavbarCollapsed; 
   }
 
   logout() {
     this.authService.logout().subscribe({
       next: () => {
+        this.isAdmin = false;
         this.isLoggedIn = false;
+
         this.router.navigate(['/login']);
       },
       error: (error) => {

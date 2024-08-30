@@ -40,7 +40,7 @@ router.get('/me', authenticateToken, async (req, res) => {
         
         delete user.password;
 
-        res.json({ userId: user.id });
+        res.json({ userId: user.id, role:user.role });
     } catch (err) {
         console.error('Error fetching user data:', err);
         res.status(500).json({ message: 'Error fetching user data', error: err });

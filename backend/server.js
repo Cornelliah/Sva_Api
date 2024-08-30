@@ -24,6 +24,7 @@ const messageRoutes = require('./routes/messageRoutes');
 const headerRoutes = require('./routes/headerRoutes'); 
 const campaignRoutes = require('./routes/campaignRoutes'); 
 const hostoRoutes = require('./routes/hostoRoutes'); 
+const statsRoutes = require('./routes/statsRoutes'); 
 
 
 
@@ -34,6 +35,7 @@ app.use('/messages', messageRoutes);
 app.use('/header', headerRoutes);
 app.use('/marketing', campaignRoutes);
 app.use('/hosto', hostoRoutes);
+app.use('/statistics', statsRoutes);
 
 
 // Route de base

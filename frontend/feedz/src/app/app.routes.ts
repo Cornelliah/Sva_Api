@@ -9,6 +9,7 @@ import { MarketingComponent } from '../../components/marketing/marketing.compone
 import { CampaignComponent } from '../../components/campaign/campaign.component';
 import { HostoComponent } from '../../components/hosto/hosto.component';
 import { VoteComponent } from '../../components/vote/vote.component';
+import { StatsComponent } from '../../components/stats/stats.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -20,5 +21,6 @@ export const routes: Routes = [
   { path: 'messages', component: MessageComponent },
   { path: 'market', component: MarketingComponent },
   { path: 'confirmation', component: ConfirmationComponent },
+  { path: 'stats', component: StatsComponent },
   { path: '**',  component: NotfoundComponent } 
 ];

@@ -17,8 +17,12 @@
         <li class="nav-item">
           <a *ngIf="isLoggedIn" class="nav-link click-scroll" href="/hosto">Hôpital</a>
         </li>
+       
         <li class="nav-item">
           <a *ngIf="isLoggedIn" class="nav-link click-scroll" href="/vote">Voting</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="isAdmin" class="nav-link click-scroll" href="/stats">Statistiques</a>
         </li>
         <li class="nav-item">
           <a *ngIf="!isLoggedIn" href="/login" class="btn custom-btn d-lg-block d-none">Connexion</a>

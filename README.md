@@ -1,2 +1,2 @@
 # Sva_Api
-Services à valeur ajoutée
+Messaging service using the orange sms API. Frontend Angular/Backend Node Js with express

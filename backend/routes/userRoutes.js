@@ -11,20 +11,24 @@ router.post('/register', async (req, res) => {
     const { email, password } = req.body;
 
     try {
-        // Hash du mot de passe
+        
         const hashedPassword = await bcrypt.hash(password, 10);
 
         // Insérer l'utilisateur dans la base de données
-        await db.execute(
+        const [result] = await db.execute(
             'INSERT INTO users (email, password) VALUES (?, ?)',
             [email, hashedPassword]
         );
 
-        const token = jwt.sign({ id: user.id, email: user.email }, secret, { expiresIn: '1h' });
         
-        res.status(201).json({ message: 'Enregistrement réussi!' , token});
+        const userId = result.insertId;
+
+        // Créer le token JWT
+        const token = jwt.sign({ id: userId, email }, secret, { expiresIn: '1h' });
+
+        res.status(201).json({ message: 'Enregistrement réussi!', token });
     } catch (err) {
-        console.log (err);
+        console.error('Erreur enregistrement utilisateur:', err);
         res.status(500).json({ message: 'Erreur enregistrement utilisateur', error: err });
     }
 });
